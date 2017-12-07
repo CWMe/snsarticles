@@ -6,10 +6,9 @@ phases:
       - echo Entering build phase...
       - echo Build started on `date`
       - mvn clean package
-      - cd ..
       - mv target/snsarticles.jar .
       - unzip snsarticles.jar
-      - rm -rf target src buildspec.yml pom.xml snsarticles.jar
+      - rm -rf target src buildspec.yml pom.xml snsarticles.jar README.md
       - aws cloudformation package --template template.yml --s3-bucket $S3_BUCKET --output-template template-export.yml
 artifacts:
   files:
